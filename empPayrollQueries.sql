@@ -107,7 +107,8 @@ EXEC UpdateEmployees @Mobile_number='9920568832',@Address='Hubli',@Department='F
 EXEC UpdateEmployees @Mobile_number='7789006754',@Address='Goa',@Department='Marketing',@Name='Zeesh';
 Select * from Employee_Payroll; --To get all records
 
-
-
+/*UC9*/
+--to rename a column in table
+sp_rename 'Employee_Payroll.Salary','Basic_Pay','Column';
 
 	
