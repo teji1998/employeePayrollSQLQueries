@@ -61,20 +61,20 @@ Select * from Employee_Payroll
  --To get average of salary of the males
  Select AVG(Salary) as AVERAGE_OF_SALARY From Employee_Payroll 
  where Gender = 'Male' Group by Gender;
-  --To get average of salary of the males
-  Select AVG(Salary) as AVERAGE_OF_SALARY From Employee_Payroll 
+ --To get average of salary of the males
+ Select AVG(Salary) as AVERAGE_OF_SALARY From Employee_Payroll 
  where Gender = 'Female' Group by Gender;
  --To get minimum of salary of the males
-  Select MIN(Salary) as MINIMUM_OF_SALARY From Employee_Payroll 
+ Select MIN(Salary) as MINIMUM_OF_SALARY From Employee_Payroll 
  where Gender = 'Male' Group by Gender;
  --To get minimum of salary of the females
-  Select MIN(Salary) as MINIMUM_OF_SALARY From Employee_Payroll 
+ Select MIN(Salary) as MINIMUM_OF_SALARY From Employee_Payroll 
  where Gender = 'Female' Group by Gender;
  --To get maximum of salary of the males
-  Select MAX(Salary) as MAXIMUM_OF_SALARY From Employee_Payroll 
+ Select MAX(Salary) as MAXIMUM_OF_SALARY From Employee_Payroll 
  where Gender = 'Male' Group by Gender;
  --To get maximum of salary of the females
-  Select MAX(Salary) as MAXIMUM_OF_SALARY From Employee_Payroll 
+ Select MAX(Salary) as MAXIMUM_OF_SALARY From Employee_Payroll 
  where Gender = 'Female' Group by Gender;
  --To get count of the males
  Select COUNT(Name) as COUNT_BY_NAME From Employee_Payroll 
