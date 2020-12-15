@@ -88,9 +88,12 @@ Select * from Employee_Payroll
 ALTER TABLE Employee_Payroll 
 ADD Mobile_number bigint ,
 Address Varchar(50) not null default '-',
-Department Varchar(50) not null default '-';  
-
-Select * from Employee_Payroll;
+Department Varchar(50) not null default '-'; 
+--To add values into new column 
+Update Employee_Payroll
+ SET Mobile_number = '8976456754', Address ='Hyderabad', Department = 'Electronics' where Name = 'Sravani'; 
+ 
+ 
 
 
 
