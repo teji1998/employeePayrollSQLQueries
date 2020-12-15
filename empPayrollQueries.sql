@@ -98,7 +98,7 @@ create procedure UpdateEmployees
 as
 begin
 Update Employee_Payroll
- SET Mobile_number = @Mobile_number, Address =@Address, Department = @Department where Name = @Name; 
+SET Mobile_number = @Mobile_number, Address =@Address, Department = @Department where Name = @Name; 
 end;
 --using update procedure to update values into the table
 EXEC UpdateEmployees @Mobile_number='9920275347',@Address='Mumbai',@Department='EXTC',@Name='Teju';
@@ -106,7 +106,7 @@ EXEC UpdateEmployees @Mobile_number='8634988874',@Address='Telangana',@Departmen
 EXEC UpdateEmployees @Mobile_number='9920568832',@Address='Hubli',@Department='Finance',@Name='Aditya';
 EXEC UpdateEmployees @Mobile_number='7789006754',@Address='Goa',@Department='Marketing',@Name='Zeesh';
 Select * from Employee_Payroll; --To get all records
- 
+
 
 
 
