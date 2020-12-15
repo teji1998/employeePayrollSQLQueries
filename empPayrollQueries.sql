@@ -110,5 +110,11 @@ Select * from Employee_Payroll; --To get all records
 /*UC9*/
 --to rename a column in table
 sp_rename 'Employee_Payroll.Salary','Basic_Pay','Column';
+--to add columns regarding payroll info
+
+ALTER TABLE Employee_Payroll 
+Add Deductions float ,Taxable_Pay float,Income_Tax float, Net_Pay float;
+
+
 
 	
