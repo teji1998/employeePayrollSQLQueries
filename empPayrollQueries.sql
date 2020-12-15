@@ -22,4 +22,8 @@ VALUES ('Aditya', '700000', '2020-08-23');
 INSERT INTO Employee_Payroll(Name, Salary,Start_Date)
 VALUES ('Zeesh', '800000', '2020-02-29');
 
+/*UC4*/
+--To retrieve all data
+select * from Employee_Payroll;
+
 	
