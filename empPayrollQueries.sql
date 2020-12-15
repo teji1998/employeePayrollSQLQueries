@@ -26,4 +26,23 @@ VALUES ('Zeesh', '800000', '2020-02-29');
 --To retrieve all data
 select * from Employee_Payroll;
 
+/*UC5*/
+--To get the Salary based on the name
+select Salary as Salary from Employee_Payroll where Name='Sravani';
+select Salary as Salary from Employee_Payroll where Name='Bhagya';
+select Salary as Salary from Employee_Payroll where Name='Teju';
+select Salary as Salary from Employee_Payroll where Name='Aditya';
+select Salary as Salary from Employee_Payroll where Name='Zeesh';
+--To get records within a given date range
+Select * from Employee_Payroll
+ Where Start_Date between CAST ('2020-12-12' AS DATE) And  GETDATE();
+ Select * from Employee_Payroll
+ Where Start_Date between CAST ('2020-08-01' AS DATE) And  GETDATE();
+ Select * from Employee_Payroll
+ Where Start_Date between CAST ('2020-01-01' AS DATE) And  GETDATE();
+ 
+
+
+
+
 	
