@@ -40,7 +40,19 @@ Select * from Employee_Payroll
  Where Start_Date between CAST ('2020-08-01' AS DATE) And  GETDATE();
  Select * from Employee_Payroll
  Where Start_Date between CAST ('2020-01-01' AS DATE) And  GETDATE();
- 
+
+ /*UC6*/
+ --To alter existing table to add gender column
+ ALTER TABLE Employee_Payroll ADD Gender varchar(10);
+ --To update the gender as female
+ Update Employee_Payroll
+ SET Gender = 'Female' where Name = 'Sravani' or Name = 'Bhagya' or Name = 'Teju';
+  --To update the gender as male
+ Update Employee_Payroll
+ SET Gender = 'Male' where Name = 'Aditya' or Name = 'Zeesh' ;
+
+
+ Select * from Employee_Payroll
 
 
 
