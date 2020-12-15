@@ -83,10 +83,14 @@ Select * from Employee_Payroll
  Select COUNT(Name) as COUNT_BY_NAME From Employee_Payroll 
  where Gender = 'Female' Group by Gender;
 
+/*UC8*/
+--To add mobile number,address,department
+ALTER TABLE Employee_Payroll 
+ADD Mobile_number bigint ,
+Address Varchar(50) not null default '-',
+Department Varchar(50) not null default '-';  
 
-
- Select * from Employee_Payroll
-
+Select * from Employee_Payroll;
 
 
 
