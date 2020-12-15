@@ -91,8 +91,21 @@ Address Varchar(50) not null default '-',
 Department Varchar(50) not null default '-'; 
 --To add values into new column 
 Update Employee_Payroll
- SET Mobile_number = '8976456754', Address ='Hyderabad', Department = 'Electronics' where Name = 'Sravani'; 
- 
+ SET Mobile_number = '8976456754', Address ='Hyderabad', Department = 'Sales' where Name = 'Sravani'; 
+--Created a procedure to update the values
+create procedure UpdateEmployees
+(@Mobile_number bigint,@Address Varchar(50),@Department Varchar(50),@Name  varchar(50))
+as
+begin
+Update Employee_Payroll
+ SET Mobile_number = @Mobile_number, Address =@Address, Department = @Department where Name = @Name; 
+end;
+--using update procedure to update values into the table
+EXEC UpdateEmployees @Mobile_number='9920275347',@Address='Mumbai',@Department='EXTC',@Name='Teju';
+EXEC UpdateEmployees @Mobile_number='8634988874',@Address='Telangana',@Department='IT',@Name='Bhagya';
+EXEC UpdateEmployees @Mobile_number='9920568832',@Address='Hubli',@Department='Finance',@Name='Aditya';
+EXEC UpdateEmployees @Mobile_number='7789006754',@Address='Goa',@Department='Marketing',@Name='Zeesh';
+Select * from Employee_Payroll; --To get all records
  
 
 
