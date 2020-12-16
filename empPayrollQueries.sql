@@ -179,6 +179,21 @@ values('2019-12-31',60000,10000,1300,1000,500000,1),
 ('2020-02-14',700000,50000,3500,2500,600000,5);
 select * from Payroll;
 
+/*UC11*/
+--creating Employee-department table
+Create table Employee_Department(
+Employee_Id int not null foreign key references Employee(employee_id),
+Department_Id int not null foreign key references Department(Department_id)
+);
+
+--Inserting values in to Employee_Department
+Insert into Employee_Department(Employee_Id,Department_Id)
+values(1,1),
+(2,5),
+(3,2),
+(4,3),
+(5,3);
+select * from Employee_Department;
 
 
 	
