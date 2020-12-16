@@ -22,6 +22,30 @@ VALUES ('Aditya', '700000', '2020-08-23');
 INSERT INTO Employee_Payroll(Name, Salary,Start_Date)
 VALUES ('Zeesh', '800000', '2020-02-29');
 
+create procedure SpAddEmployeeDetails
+(
+@Name varchar(50),
+@Basic_Pay  float,
+@Start_Date varchar(20),
+@Gender Varchar(10),
+@Mobile_number bigint,
+@Address varchar(50),
+@Department  varchar(50),
+@Deductions float,
+@Taxable_Pay float,
+@Income_Tax float,
+@Net_Pay float
+)
+as
+begin
+insert into employee_payroll values
+(
+@Name,@Basic_Pay,@Start_Date,@Gender,@Mobile_number,@Address,@Department,@Deductions,@Taxable_Pay,@Income_Tax,@Net_Pay)
+end
+Alter Table Employee_Payroll
+Alter Column Mobile_number Varchar(10);
+
+
 /*UC4*/
 --To retrieve all data
 select * from Employee_Payroll;
@@ -113,7 +137,8 @@ sp_rename 'Employee_Payroll.Salary','Basic_Pay','Column';
 --to add columns regarding payroll info
 ALTER TABLE Employee_Payroll 
 Add Deductions float ,Taxable_Pay float,Income_Tax float, Net_Pay float;
-
+Update Employee_PayRoll
+ set Deductions='37000',Taxable_Pay='10000',Income_Tax='5000',Net_Pay ='6000';
 /*UC10*/
 --Creating table Employee
 Create table Employee(
@@ -168,7 +193,7 @@ Income_Tax float,
 Taxable_Pay float,
 Net_Pay float,
 employee_id int not null foreign key references employee(employee_id)
---constraint Payroll_fK Foreign key(employee_id) references employee(employee_id)
+--constraint Payroll_fK Foreign key(employee_id) references employee(employee_id) --used for multiple reference
 );
 --inserting values into Payroll
 insert into Payroll(Start_Date,Basic_Pay,Deductions,Income_Tax,Taxable_Pay,Net_Pay,employee_id)
@@ -194,6 +219,23 @@ values(1,1),
 (4,3),
 (5,3);
 select * from Employee_Department;
+
+/*UC12*/
+--to get salary
+select e.employee_id,e.Name,e.Gender,e.Mobile_Number,e.Address,p.Net_Pay,d.Department_Name
+from Employee e,Payroll p,Department d,Employee_Department ed
+where e.employee_id=p.employee_id and ed.Employee_Id=e.employee_id and ed.Department_Id=d.Department_Id;
+
+--aggregate functions
+select e.Gender,
+count(e.employee_id) as EmpCount,
+min(p.Net_Pay) as MinSalary,
+max(p.Net_Pay) as MaxSalary,
+sum(p.Net_Pay) as SalarySum,
+avg(p.Net_Pay) as AvgSalary
+from Employee e,Payroll p
+ where e.employee_id=p.employee_id group by Gender;
+
 
 
 	
