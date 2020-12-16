@@ -115,6 +115,69 @@ ALTER TABLE Employee_Payroll
 Add Deductions float ,Taxable_Pay float,Income_Tax float, Net_Pay float;
 
 /*UC10*/
+--Creating table Employee
+Create table Employee(
+employee_id int identity(1,1) primary Key,
+Name  varchar(50),
+Gender char(1),
+Mobile_Number varchar(10),
+Address varchar(50)
+)
+--creating procedures 
+create procedure EmployeeInfo
+(
+@Name varchar(50),
+@Gender char(1),
+@Mobile_number varchar(10),
+@Address varchar(50)
+)
+as
+begin
+insert into Employee values
+(
+@Name,@Gender,@Mobile_number,@Address
+)
+end
+--Inserting value into Employee
+EXEC EmployeeInfo @Name='Sravani',@Gender='F',@Mobile_number='7689006789',@Address='Telangana';
+EXEC EmployeeInfo @Name='Bhagya',@Gender='F',@Mobile_number='8900543789',@Address='Hyderabad';
+EXEC EmployeeInfo @Name='Teju',@Gender='F',@Mobile_number='9920275347',@Address='Mumbai';
+EXEC EmployeeInfo @Name='Adiii',@Gender='M',@Mobile_number='9820543126',@Address='Hubli';
+EXEC EmployeeInfo @Name='Zeesh',@Gender='M',@Mobile_number='8679556700',@Address='Goa';
+select * from Employee;
+--Creating table department
+Create table Department(
+Department_Id int identity(1,1) primary Key,
+Department_Name varchar(50)
+);
+--insering values in department
+Insert into Department(Department_Name)
+values('Sales'),
+('IT'),
+('EXTC'),
+('Finance'),
+('Marketing');
+select * from Department
+--Creating table payroll
+create table Payroll(
+PayRoll_Id int Identity(1,1) primary Key,
+Start_Date date,
+Basic_Pay float,
+Deductions float,
+Income_Tax float,
+Taxable_Pay float,
+Net_Pay float,
+employee_id int not null foreign key references employee(employee_id)
+--constraint Payroll_fK Foreign key(employee_id) references employee(employee_id)
+);
+--inserting values into Payroll
+insert into Payroll(Start_Date,Basic_Pay,Deductions,Income_Tax,Taxable_Pay,Net_Pay,employee_id)
+values('2019-12-31',60000,10000,1300,1000,500000,1),
+('2020-11-13',700000,150000,1400,1100,550000,2),
+('2020-04-14',40000,5000,900,500,350000,3),
+('2018-09-03',540000,10000,9000,4500,490000,4),
+('2020-02-14',700000,50000,3500,2500,600000,5);
+select * from Payroll;
 
 
 
